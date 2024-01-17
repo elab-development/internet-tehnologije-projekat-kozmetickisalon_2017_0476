@@ -34,5 +34,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::patch('/termini/{id}', [TerminController::class,'updateVreme']);
     Route::delete('/termini/{id}', [TerminController::class,'destroy']);
 
+    Route::get('/export-csv', [UslugaController::class, 'exportToCSV']);
+
     Route::post('/logout', [AuthController::class, 'logout']); 
 });   

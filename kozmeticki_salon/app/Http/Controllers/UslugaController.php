@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Resources\UslugaResource;
 use App\Models\Usluga;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UslugaExport;
+
 class UslugaController extends Controller
 {
     public function index()
@@ -22,4 +25,7 @@ class UslugaController extends Controller
         return new UslugaResource($user);
     }
 
+    public function exportToCSV(){
+        return Excel::download(new UslugaExport, 'usluge-csv.csv');
+    }
 }
