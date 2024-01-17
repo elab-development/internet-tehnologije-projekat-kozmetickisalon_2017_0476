@@ -1,0 +1,117 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
+use App\Http\Resources\TerminResource;
+use App\Models\Termin;
+
+class TerminController extends Controller
+{
+
+
+    public function store(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        // Validacija za polja koja se unose preko requesta
+        $validator = Validator::make($request->all(), [
+            'datum' => 'required',
+            'vreme' => 'required',
+            'usluga_id' => 'required',
+        ]);
+
+        // Provera validacije
+        if ($validator->fails()) {
+            return response()->json(['Greska' => $validator->errors()], 400);
+        }
+
+
+        $termin = new Termin();
+        $termin->datum = $request->datum;
+        $termin->vreme = $request->vreme;
+        $termin->usluga_id = $request->usluga_id;
+        $termin->zaposleni_id = rand(1,6);
+        $termin->user_id = $user_id;
+
+        $termin->save();
+
+        return response()->json(['Poruka' => 'Uspesno ste zakazali termin!!!', 
+            'Zakazan termin: ' => new TerminResource($termin)]);
+
+    }
+
+    public function update(Request $request, $id)
+    {
+
+            $user_id = Auth::user()->id;
+
+            // Validacija za polja koja se unose preko requesta
+            $validator = Validator::make($request->all(), [
+                'datum' => 'required',
+                'vreme' => 'required',
+            ]);
+
+            // Provera validacije
+            if ($validator->fails()) {
+                return response()->json(['Greska' => $validator->errors()], 400);
+            }
+
+            $termin = Termin::findOrFail($id);
+            if($termin->user_id != $user_id){
+                return response()->json(['Greska' => 'PRISTUP ZABRANJEN: Korisnik nije zakazao ovaj termin!'], 403);
+            }
+
+            $termin->datum = $request->datum;
+            $termin->vreme = $request->vreme;
+
+            $termin->save();
+
+            return response()->json(['Poruka' => 'Termin je uspesno izmenjen!', 'Termin: ' => new TerminResource($termin)]);
+    }
+
+    public function updateVreme(Request $request, $id)
+    {
+            $user_id = Auth::user()->id;
+
+            // Validacija za polja koja se unose preko requesta
+            $validator = Validator::make($request->all(), [
+                'vreme' => 'required',
+            ]);
+
+            // Provera validacije
+            if ($validator->fails()) {
+                return response()->json(['Greska' => $validator->errors()], 400);
+            }
+
+            $termin = Termin::findOrFail($id);
+            if($termin->user_id != $user_id){
+                return response()->json(['Greska' => 'PRISTUP ZABRANJEN: Korisnik nije zakazao ovaj termin!'], 403);
+            }
+
+            $termin->vreme = $request->vreme;
+
+            $termin->save();
+
+            return response()->json(['Poruka' => 'Vreme uspesno izmenjeno!', 'termin' => new TerminResource($termin)]);
+    }
+
+    public function destroy($id)
+    {
+        $user_id = Auth::user()->id;
+
+        $termin = Termin::findOrFail($id);
+
+        if($termin->user_id != $user_id){
+            return response()->json(['Greska' => 'PRISTUP ZABRANJEN: Korisnik nije zakazao ovaj termin!'], 403);
+        }
+
+        $termin->delete();
+
+        return response()->json(['Poruka' => 'Termin je uspesno obrisan.']);
+    }
+
+}
