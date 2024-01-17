@@ -16,4 +16,8 @@ class Usluga extends Model
         'opis', 
         'cena',
     ];
+
+    public function termini() {
+        return $this->hasMany(Termin::class);
+    }
 }

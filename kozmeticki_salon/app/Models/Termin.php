@@ -18,4 +18,16 @@ class Termin extends Model
         'zaposleni_id',
         'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function zaposleni() {
+        return $this->belongsTo(Zaposleni::class);
+    }
+
+    public function usluga() {
+        return $this->belongsTo(Usluga::class);
+    }
 }

@@ -18,4 +18,8 @@ class Zaposleni extends Model
         'email',
         'linkedin',
     ];
+
+    public function termini() {
+        return $this->hasMany(Termin::class);
+    }
 }
