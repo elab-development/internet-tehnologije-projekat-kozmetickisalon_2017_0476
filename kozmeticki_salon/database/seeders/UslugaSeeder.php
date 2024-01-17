@@ -14,6 +14,12 @@ class UslugaSeeder extends Seeder
      */
     public function run(): void
     {
-        Usluga::factory()->times(6)->create();
+        Usluga::factory()->times(3)->create();
+
+        for ($i = 1; $i <= 3; $i++) {
+            Usluga::factory()->create([
+                'naziv' => 'Lashlift',
+            ]);
+        }
     }
 }

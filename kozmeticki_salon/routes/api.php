@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ZaposleniController;
 use App\Http\Controllers\UslugaController;
 use App\Http\Controllers\TerminController;
-
+use App\Http\Controllers\PretragaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/termini/{id}', [TerminController::class,'destroy']);
 
     Route::get('/export-csv', [UslugaController::class, 'exportToCSV']);
+
+    Route::get('/pretraga/poNazivu', [PretragaController::class, 'pretragaPoNazivu']);
 
     Route::post('/logout', [AuthController::class, 'logout']); 
 });   
