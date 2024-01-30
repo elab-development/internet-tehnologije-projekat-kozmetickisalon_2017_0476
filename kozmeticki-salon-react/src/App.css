@@ -275,3 +275,41 @@ input[type="text"]::placeholder {
   margin: 10px;
 }
 
+.about {
+  text-align: center;
+  padding: 0px;
+  background-color: #ce9a9b;
+  height: 950px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .image-container{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+.about .image-container img {
+  height: 400px;
+  width: 300px;
+}
+
+.about-tekst{
+  background-color: #f0e7e7;
+  opacity: 90%;
+  width: 700px ;
+  color: #AC6869;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+
+
+
