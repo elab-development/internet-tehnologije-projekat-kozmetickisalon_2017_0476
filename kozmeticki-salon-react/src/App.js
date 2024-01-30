@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SpaSpecialists from './components/SpaSpecialists';
 import KozmetickeUsluge from './components/KozmetickeUsluge';
+import About from './components/About';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/spa-specialists" element={<SpaSpecialists/>} />
           <Route path="/spa-services" element={<KozmetickeUsluge/>} />
+          <Route path='/about-us' element={<About/>}/>
         </Routes>
         
         <Footer/>
