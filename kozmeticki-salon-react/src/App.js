@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SpaSpecialists from './components/SpaSpecialists';
+import KozmetickeUsluge from './components/KozmetickeUsluge';
 
 
 function App() {
@@ -13,9 +14,8 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>} />
-        </Routes>
-        <Routes>
           <Route path="/spa-specialists" element={<SpaSpecialists/>} />
+          <Route path="/spa-services" element={<KozmetickeUsluge/>} />
         </Routes>
         
         <Footer/>
