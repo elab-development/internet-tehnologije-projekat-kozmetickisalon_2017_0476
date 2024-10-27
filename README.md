@@ -1,1 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/1IMeAlJr)
+# Kozmetički Salon - Projekat
+
+Dobrodošli u projekat kozmetičkog salona! Ovaj repozitorijum sadrži aplikaciju koja omogućava korisnicima da pregledaju usluge, zakazuju termine i pristupe informacijama o salonu.
+
+## Pokretanje Projekta na Lokalnoj Mašini
+
+Pratite sledeće korake da biste preuzeli i pokrenuli projekat lokalno:
+
+composer install
+php artisan serve
+
+npm install
+npm start
+
+
