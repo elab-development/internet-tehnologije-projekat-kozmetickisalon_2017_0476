@@ -11,18 +11,18 @@ class TerminResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
+     * @param \Illuminate\Http\Request $request
+     * @return array
      */
-    public function toArray(Request $request): array
+    public function toArray($request): array
     {
         return [
-            'id' => $this->resource->id,
-            'datum' => $this->resource->datum,
-            'vreme' => $this->resource->vreme,
-            'usluga_id' => new UslugaResource($this->resource->usluga),
-            'zaposleni_id' => new ZaposleniResource($this->resource->zaposleni),
-            'user_id' => new UserResource($this->resource->user),
+            'id' => $this->id,
+            'datum' => $this->datum,
+            'vreme' => $this->vreme,
+            'usluga_id' => new UslugaResource($this->usluga),
+            'zaposleni_id' => new ZaposleniResource($this->zaposleni),
+            'user_id' => new UserResource($this->user),
         ];
     }
 }

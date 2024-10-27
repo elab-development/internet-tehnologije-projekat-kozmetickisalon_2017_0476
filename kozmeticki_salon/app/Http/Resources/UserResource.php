@@ -10,14 +10,23 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @param \Illuminate\Http\Request $request
+     * @return array
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
-        return [
-            'id' => $this->resource->id,
-            'name' => $this->resource->name,
-            'email' => $this->resource->email,
+        $data = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
         ];
+
+        if ($this->is_worker) {
+            $data['is_admin'] = 'Ovaj korisnik je administrator sajta';
+        } else {
+            $data['is_admin'] = 'Ovo je obican korisnik salona';
+        }
+
+        return $data;
     }
 }

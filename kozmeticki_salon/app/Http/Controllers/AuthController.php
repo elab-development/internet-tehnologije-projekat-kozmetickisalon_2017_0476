@@ -63,6 +63,7 @@ class AuthController extends Controller
             'Poruka' => 'Hello, ' . $user->name . ' 🤩Uspesna prijava, dobrodosli!🤩',
             'access_token' => $token,
             'token_type' => 'Bearer',
+            'is_admin' => $user->is_admin,
         ]);
     }
 

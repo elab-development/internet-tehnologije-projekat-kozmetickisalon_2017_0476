@@ -9,18 +9,18 @@ class ZaposleniResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
+     * @param \Illuminate\Http\Request $request
+     * @return array
      */
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->resource->id,
-            'naziv' => $this->resource->naziv,
-            'strucna_sprema' => $this->resource->strucna_sprema,
-            'kontakt_telefon' => $this->resource->kontakt_telefon,
-            'email' => $this->resource->email,
-            'linkedin' => $this->resource->linkedin,
+            'id' => $this->id,
+            'naziv' => $this->naziv,
+            'strucna_sprema' => $this->strucna_sprema,
+            'kontakt_telefon' => $this->kontakt_telefon,
+            'email' => $this->email,
+            'linkedin' => $this->linkedin,
         ];
     }
 }
