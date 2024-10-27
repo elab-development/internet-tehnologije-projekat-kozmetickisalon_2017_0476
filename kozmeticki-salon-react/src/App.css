@@ -310,6 +310,149 @@ input[type="text"]::placeholder {
   border-radius: 15px;
 }
 
+/* login i registracija */
+.login-page, .registration-page {
+  display: flex;
+  min-height: 100px;
+  background-color: #d4a5a7; 
+}
+
+.form-container {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; 
+}
+
+/* Styling for the form box */
+.login-form, .register-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f7e2e1; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #AC6869;
+}
+
+/* Form headline */
+.login-form h2, .register-form h2 {
+  color: #AC6869;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+/* Error message styling */
+.error {
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #AC6869;
+}
+
+/* Input styling */
+.login-form input[type="email"],
+.login-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px; /* Added margin-bottom for consistent spacing */
+  border: 1px solid #AC6869;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #AC6869;
+
+}
+
+/* Button styling */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #f7e2e1;
+  background-color: #AC6869;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ECA4A4;
+}
+
+/* Image container for right side */
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px; 
+}
+
+/* Image styling */
+.image-container img {
+  width: 1200px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #f0e7e7;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 85%;
+  color: #AC6869;
+  text-align: center;
+}
+
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #f0e7e7;
+  background-color: #AC6869;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #ECA4A4;
+}
+
+
+
+
 
 
 
