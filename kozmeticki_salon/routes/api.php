@@ -24,8 +24,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::resource('zaposleni', ZaposleniController::class, ['only' => ['index', 'show']]);
 
-Route::get('usluge', [UslugaController::class, 'index']);
-Route::get('usluge/{id}', [UslugaController::class, 'show']); 
+
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
@@ -37,6 +36,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/export-csv', [UslugaController::class, 'exportToCSV']);
 
     Route::get('/pretraga/poNazivu', [PretragaController::class, 'pretragaPoNazivu']);
+
+    Route::get('usluge', [UslugaController::class, 'index']);
+    Route::get('usluge/{id}', [UslugaController::class, 'show']); 
 
     Route::post('/logout', [AuthController::class, 'logout']); 
 });   

@@ -48,9 +48,9 @@ const LoginForm = ({ setToken, setIsAdmin }) => {
     const handleCloseModal = () => {
         setShowModal(false);
         if (isAdmin) {
-            navigate('/admin/usluge');
+            navigate('/spa-services');
         } else {
-            navigate('/usluge');
+            navigate('/spa-services');
         }
     };
 

@@ -68,23 +68,20 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
               {/* Stranice dostupne samo prijavljenim korisnicima */}
               {token && (
                   <>
-                      <li className="nav-item">
-                          <Link to="/usluge" className="nav-link">Usluge</Link>
-                      </li>
-                      
-                      {/* Prikaz stranica prema ulozi korisnika */}
-                      {isAdmin ? (
-                          <li className="nav-item">
-                              <Link to="/korisnici" className="nav-link">Korisnici</Link>
-                          </li>
-                      ) : (
-                          <li className="nav-item">
+                   <li className="nav-item">
                               <Link to="/spa-services" className="nav-link">
                              <FaSpa className="nav-icon" />
                               Spa Services
                               </Link>
                               
-                          </li>,
+                          </li>
+                      
+                      {/* Prikaz stranica prema ulozi korisnika */}
+                      {isAdmin ? (
+                          <li className="nav-item">
+                              <Link to="/kor" className="nav-link">Korisnici</Link>
+                          </li>
+                      ) : (
                           <li className="nav-item">
                             <Link to="/spa-specialists" className="nav-link">
                             <FaUserMd className="nav-icon" />

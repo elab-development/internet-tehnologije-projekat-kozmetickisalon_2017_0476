@@ -15,7 +15,7 @@ import Korisnici from './components/Korisnici';
 function App() {
 
   const [token, setToken] = useState(sessionStorage.getItem('access_token'));
-  const [isAdmin, setIsAdmin] = useState(sessionStorage.getItem('is_worker') === 'true');
+  const [isAdmin, setIsAdmin] = useState(sessionStorage.getItem('is_admin') === 'true');
 
   return (
     <div className="App">
@@ -27,12 +27,12 @@ function App() {
           <Route path="/login" element={<LoginForm setToken={setToken} setIsAdmin={setIsAdmin} />} />
           <Route path="/register" element={<RegisterForm />} />
 
-
           {/* Rute koje su dostupne samo kada je korisnik ulogovan */}
           {token && (
             <>
               {isAdmin ? (
-                <Route path="/korisnici" element={<Korisnici />} /> 
+                <Route path="/kor" element={<Korisnici />} /> ,
+                <Route path="/spa-services" element={<KozmetickeUsluge/>} />
               ) : (
                 <Route path="/spa-specialists" element={<SpaSpecialists/>} />,
                 <Route path="/spa-services" element={<KozmetickeUsluge/>} />
