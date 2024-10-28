@@ -1,53 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Korisnici = () => {
-    const [users, setUsers] = useState([]);
-    const [selectedUser, setSelectedUser] = useState(null); // Korisnik za prikaz u modalu
-    const [isModalOpen, setIsModalOpen] = useState(false); // Stanje za modal
+    const [korisnici, setKorisnici] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const token = sessionStorage.getItem('access_token'); // Retrieve the token
 
     useEffect(() => {
-        // Dohvatanje korisnika sa backend-a
-        const fetchUsers = async () => {
+        const fetchKorisnici = async () => {
             try {
-                const token = sessionStorage.getItem('access_token'); // Dohvati token iz sessionStorage-a
                 const response = await axios.get('http://127.0.0.1:8000/api/users', {
                     headers: {
-                        Authorization: `Bearer ${token}` // Dodaj token u zaglavlje
+                        Authorization: `Bearer ${token}`
                     }
                 });
-                setUsers(response.data.data); // Pretpostavljamo da je struktura data
+                setKorisnici(response.data.data);
+                setLoading(false);
             } catch (error) {
-                console.error("Error fetching users:", error);
-                alert("Failed to fetch users. Please make sure you are authenticated.");
+                setError(error);
+                setLoading(false);
             }
         };
-        fetchUsers();
-    }, []);
 
-    // Funkcija za otvaranje modala sa detaljima korisnika
+        fetchKorisnici();
+    }, [token]);
+
+    // Open modal with selected user details
     const openModal = (user) => {
         setSelectedUser(user);
         setIsModalOpen(true);
     };
 
-    // Funkcija za zatvaranje modala
+    // Close modal
     const closeModal = () => {
         setSelectedUser(null);
         setIsModalOpen(false);
     };
 
-    // Funkcija za brisanje korisnika
+    // Function to delete a user
     const deleteUser = async (id) => {
         try {
-            const token = sessionStorage.getItem('access_token');
             await axios.delete(`http://127.0.0.1:8000/api/users/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setUsers(users.filter(user => user.id !== id));
-            closeModal();
+            // Update the state locally by removing the deleted user
+            setKorisnici(korisnici.filter(user => user.id !== id));
+            setSelectedUser(null);
             alert("User deleted successfully.");
         } catch (error) {
             console.error("Error deleting user:", error);
@@ -55,7 +59,11 @@ const Korisnici = () => {
         }
     };
 
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+
     return (
+        <div className='korisnici-page'>
         <div className="korisnici-container">
             <h2>Korisnici</h2>
             <table>
@@ -68,7 +76,7 @@ const Korisnici = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(user => (
+                    {korisnici.map(user => (
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.name}</td>
@@ -82,7 +90,7 @@ const Korisnici = () => {
                 </tbody>
             </table>
 
-            {/* Modal za prikaz detalja korisnika */}
+            {/* Modal for displaying user details */}
             {isModalOpen && selectedUser && (
                 <div className="modal">
                     <div className="modal-content">
@@ -96,6 +104,7 @@ const Korisnici = () => {
                     </div>
                 </div>
             )}
+        </div>
         </div>
     );
 };

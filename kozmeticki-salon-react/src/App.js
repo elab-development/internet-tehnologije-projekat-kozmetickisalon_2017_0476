@@ -20,31 +20,32 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-       <Navbar token={token} setToken={setToken} isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
+        <Navbar token={token} setToken={setToken} isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path='/about-us' element={<About/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/login" element={<LoginForm setToken={setToken} setIsAdmin={setIsAdmin} />} />
           <Route path="/register" element={<RegisterForm />} />
-
-          {/* Rute koje su dostupne samo kada je korisnik ulogovan */}
+  
+          {/* Routes available only when the user is logged in */}
           {token && (
             <>
               {isAdmin ? (
-                <Route path="/kor" element={<Korisnici />} /> ,
-                <Route path="/spa-services" element={<KozmetickeUsluge/>} />
+                <>
+                  <Route path="/kor" element={<Korisnici />} />
+                  <Route path="/spa-services" element={<KozmetickeUsluge />} />
+                </>
               ) : (
-                <Route path="/spa-specialists" element={<SpaSpecialists/>} />,
-                <Route path="/spa-services" element={<KozmetickeUsluge/>} />
+                <>
+                  <Route path="/spa-specialists" element={<SpaSpecialists />} />
+                  <Route path="/spa-services" element={<KozmetickeUsluge />} />
+                </>
               )}
             </>
           )}
-
         </Routes>
-        
-        <Footer/>
+        <Footer></Footer>
       </BrowserRouter>
-     
     </div>
   );
 }

@@ -450,6 +450,61 @@ input[type="text"]::placeholder {
   background-color: #ECA4A4;
 }
 
+.korisnici-page {
+  background-color: #D7A8A3;
+}
+
+.korisnici-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.korisnici-container h2 {
+  text-align: center;
+  color: #A94442; /* Darker pink/red color */
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #FADBD8; /* Slightly darker pink for table */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #F5C6CB; /* Light pinkish header background */
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  color: #A94442; /* Darker text color */
+  font-size: 16px;
+}
+
+th {
+  font-weight: bold;
+  border-bottom: 2px solid #E2AEB3;
+}
+
+tr:nth-child(even) {
+  background-color: #FDEDEC;
+}
+
+tr:hover {
+  background-color: #F9D3D6;
+}
+
+td {
+  border-bottom: 1px solid #E2AEB3;
+}
+
 
 
 
