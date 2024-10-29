@@ -12,6 +12,15 @@ use App\Models\Termin;
 
 class TerminController extends Controller
 {
+    public function index()
+    {
+        $user_id = Auth::id(); // ID ulogovanog korisnika
+
+    // Svi termini logovanog korisnika
+    $termini = Termin::where('user_id', $user_id)->get();
+
+    return TerminResource::collection($termini);
+    }
 
 
     public function store(Request $request)

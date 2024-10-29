@@ -20,9 +20,8 @@ class TerminResource extends JsonResource
             'id' => $this->id,
             'datum' => $this->datum,
             'vreme' => $this->vreme,
-            'usluga_id' => new UslugaResource($this->usluga),
-            'zaposleni_id' => new ZaposleniResource($this->zaposleni),
-            'user_id' => new UserResource($this->user),
+            'usluga_naziv' => $this->usluga->naziv, // Prikazujemo samo naziv usluge
+            'zaposleni_naziv' => $this->zaposleni->naziv, // Prikazujemo samo naziv zaposlenog
         ];
     }
 }

@@ -29,6 +29,7 @@ Route::resource('zaposleni', ZaposleniController::class, ['only' => ['index', 's
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
+    Route::get('/termini', [TerminController::class, 'index']);
     Route::post('/termini', [TerminController::class,'store']);
     Route::put('/termini/{id}', [TerminController::class,'update']);
     Route::patch('/termini/{id}', [TerminController::class,'updateVreme']);
