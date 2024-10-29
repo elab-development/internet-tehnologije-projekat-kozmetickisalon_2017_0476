@@ -35,7 +35,7 @@ const Home = () => {
     <div className="home">
         <div className='home-tekst'>
       <h1>Dobrodošli u naš salon lepote</h1>
-      <div className="image-container">
+      <div className="image-container-home">
         {images.length > 0 && displayedIndexes.map(index => (
         <img key={images[index].id} src={images[index].src.medium} alt="Spa" />
         ))}

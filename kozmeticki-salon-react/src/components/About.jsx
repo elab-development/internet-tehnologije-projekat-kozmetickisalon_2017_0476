@@ -43,7 +43,7 @@ const About = () => {
             </button>
             {showDetails && extraDetails}
             </div>
-            <div className="image-container">
+            <div className="image-container-about">
                 {images.map((image, index) => (
                     <img key={index} src={image.src.medium} alt={`Spa ${index + 1}`} />
                 ))}
