@@ -218,7 +218,7 @@ h3 {
   background-position: center;
   width: 100%;
   margin: 0 auto;
-  height: 900px;
+  height: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
   display: block;
@@ -252,11 +252,12 @@ input[type="text"]::placeholder {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly; 
+  gap: 20px;
 }
 
 .usluge-lista li {
   width: calc(40% - 20px); 
-  height: 200px;
+  height: 240px;
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 15px;
@@ -266,6 +267,8 @@ input[type="text"]::placeholder {
   background-color: #f1f0f0;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
 
 .usluge-lista li:hover {
   background-color: #F7E2E1;
@@ -505,6 +508,24 @@ td {
   border-bottom: 1px solid #E2AEB3;
 }
 
+ /* Dropdown zaposleni */
+
+ .zaposleni {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 5px;
+  padding: 10px;
+  
+ }
+
+.dropdown-label {
+  color: white;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
 
 

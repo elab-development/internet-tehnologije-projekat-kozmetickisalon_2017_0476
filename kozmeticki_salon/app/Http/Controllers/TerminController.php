@@ -22,26 +22,25 @@ class TerminController extends Controller
             'datum' => 'required',
             'vreme' => 'required',
             'usluga_id' => 'required',
+            'zaposleni_id' => 'required' // treba i zaposleni
         ]);
-
+    
         // Provera validacije
         if ($validator->fails()) {
             return response()->json(['Greska' => $validator->errors()], 400);
         }
-
-
+    
         $termin = new Termin();
         $termin->datum = $request->datum;
         $termin->vreme = $request->vreme;
         $termin->usluga_id = $request->usluga_id;
-        $termin->zaposleni_id = rand(1,6);
+        $termin->zaposleni_id = $request->zaposleni_id; // iskoristiti selektovani zaposleni_id
         $termin->user_id = $user_id;
-
+    
         $termin->save();
-
+    
         return response()->json(['Poruka' => 'Uspesno ste zakazali termin!!!', 
-            'Zakazan termin: ' => new TerminResource($termin)]);
-
+            'Zakazan termin' => new TerminResource($termin)]);
     }
 
     public function update(Request $request, $id)
