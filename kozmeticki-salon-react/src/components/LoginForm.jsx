@@ -50,7 +50,7 @@ const LoginForm = ({ setToken, setIsAdmin }) => {
         if (isAdmin) {
             navigate('/spa-services');
         } else {
-            navigate('/spa-services');
+            navigate('/spa-services-termin');
         }
     };
 

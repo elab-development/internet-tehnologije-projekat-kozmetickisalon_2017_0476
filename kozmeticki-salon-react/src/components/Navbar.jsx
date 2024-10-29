@@ -68,26 +68,36 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
               {/* Stranice dostupne samo prijavljenim korisnicima */}
               {token && (
                   <>
-                   <li className="nav-item">
-                              <Link to="/spa-services" className="nav-link">
-                             <FaSpa className="nav-icon" />
-                              Spa Services
-                              </Link>
-                              
-                          </li>
-                      
+                   
                       {/* Prikaz stranica prema ulozi korisnika */}
                       {isAdmin ? (
+                        <>
                           <li className="nav-item">
                               <Link to="/kor" className="nav-link">Korisnici</Link>
                           </li>
+                          <li className="nav-item">
+                          <Link to="/spa-services" className="nav-link">
+                         <FaSpa className="nav-icon" />
+                          Spa Services
+                          </Link>
+                
+                      </li>
+                      </>
                       ) : (
+                        <>
                           <li className="nav-item">
                             <Link to="/spa-specialists" className="nav-link">
                             <FaUserMd className="nav-icon" />
                             Spa Specialists
                             </Link>
                           </li>
+                          <li className="nav-item">
+                          <Link to="/spa-services-termin" className="nav-link">
+                         <FaSpa className="nav-icon" />
+                          Spa Services
+                          </Link>
+                          </li>
+                      </>
                       )}
 
                       {/* Logout dugme za prijavljene korisnike */}
