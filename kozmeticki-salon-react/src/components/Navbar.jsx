@@ -91,10 +91,17 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
                             Spa Specialists
                             </Link>
                           </li>
+                          
                           <li className="nav-item">
                           <Link to="/spa-services-termin" className="nav-link">
                          <FaSpa className="nav-icon" />
                           Spa Services
+                          </Link>
+                          </li>
+
+                          <li className="nav-item">
+                          <Link to="/termini" className="nav-link">
+                          My appointments
                           </Link>
                           </li>
                       </>

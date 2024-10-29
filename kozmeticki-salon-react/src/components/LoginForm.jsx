@@ -19,30 +19,39 @@ const LoginForm = ({ setToken, setIsAdmin }) => {
                 password
             });
 
-            const { access_token, token_type, is_admin, user_email } = response.data; 
-            
-            // Ispis celog response-a da vidimo šta vraća backend
+            const { access_token, token_type, is_admin, user_id } = response.data; 
+
+            // Log the entire response for debugging
             console.log('Response data:', response.data);
-            
+
+            // Store the login details in session storage
             sessionStorage.setItem('access_token', access_token);
             sessionStorage.setItem('token_type', token_type);
             sessionStorage.setItem('is_admin', is_admin);
-            sessionStorage.setItem('is_admin', user_email);
+            sessionStorage.setItem('user_id', user_id);
+
+            // Update the token and isAdmin states in App
             setToken(access_token);
-
-            // Postavi state za modal i tip korisnika
             setIsAdmin(!!is_admin);
-            setIsAdminState(!!is_admin);
-            setShowModal(true); // Prikaz modala nakon uspešnog logovanja
 
-            // Ispis u konzoli da li je korisnik admin ili ne
+            // Update local state in LoginForm (not strictly necessary but may help with debugging)
+            setIsAdminState(!!is_admin);
+            setShowModal(true);
+
+            // Log success and redirect if needed
             console.log('Login successful');
-            console.log(`Logged in as: ${user_email}`);
+            console.log(`Logged in as: ${email}`);
             console.log(`User type (is_admin): ${is_admin ? 'Admin' : 'Not an admin'}`);
+
+            // Redirect to the main page or a different route if desired
+            navigate('/');
         } catch (error) {
             setError('Nisu dobri parametri za login.');
+            console.error('Error during login:', error);
         }
     };
+
+    
 
     // Funkcija za zatvaranje modala i preusmeravanje
     const handleCloseModal = () => {

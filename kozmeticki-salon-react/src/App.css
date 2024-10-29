@@ -129,6 +129,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 4px;
 }
 
 button:hover {
@@ -453,7 +454,7 @@ input[type="text"]::placeholder {
   background-color: #ECA4A4;
 }
 
-.korisnici-page {
+.korisnici-page, .termini-page {
   background-color: #D7A8A3;
 }
 
@@ -464,7 +465,14 @@ input[type="text"]::placeholder {
   font-family: Arial, sans-serif;
 }
 
-.korisnici-container h2 {
+.termini-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.korisnici-container h2, .termini-container h2 {
   text-align: center;
   color: #A94442; /* Darker pink/red color */
   margin-bottom: 20px;

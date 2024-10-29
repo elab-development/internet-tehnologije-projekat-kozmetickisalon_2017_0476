@@ -11,6 +11,7 @@ import RegisterForm from './components/RegisterForm';
 import About from './components/About';
 import Korisnici from './components/Korisnici';
 import UslugeRezervacija from './components/UslugeRezervacija';
+import ZakazaniTermini from './components/ZakazaniTermini';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                 <>
                   <Route path="/spa-specialists" element={<SpaSpecialists />} />
                   <Route path="/spa-services-termin" element={<UslugeRezervacija/>} />
+                  <Route path="/termini" element={<ZakazaniTermini/>} />
                 </>
               )}
             </>
