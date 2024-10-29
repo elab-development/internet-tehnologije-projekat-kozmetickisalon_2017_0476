@@ -122,4 +122,28 @@ class TerminController extends Controller
         return response()->json(['Poruka' => 'Termin je uspesno obrisan.']);
     }
 
+    public function getMetrics()
+{
+    // Ukupan broj termina
+    $totalAppointments = Termin::count();
+
+    // Broj termina po zaposlenom sa imenom zaposlenog
+    $appointmentsByEmployee = Termin::selectRaw('zaposleni_id, COUNT(*) as count')
+        ->with('zaposleni:id,naziv')  // Koristimo 'with' da učitamo ime zaposlenog
+        ->groupBy('zaposleni_id')
+        ->get()
+        ->map(function ($item) {
+            $item->zaposleni_name = $item->zaposleni->naziv; // Dodajemo naziv zaposlenog
+            unset($item->zaposleni); // Uklanjamo nepotrebni objekat 'zaposleni'
+            return $item;
+        });
+
+    return response()->json([
+        'totalAppointments' => $totalAppointments,
+        'appointmentsByEmployee' => $appointmentsByEmployee
+    ]);
+}
+
+
+
 }

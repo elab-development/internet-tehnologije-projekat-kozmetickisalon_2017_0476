@@ -3,6 +3,9 @@ import { FaHome, FaUserMd, FaSpa, FaInfoCircle } from 'react-icons/fa';
 import { FaPersonCircleCheck } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { IoStatsChart } from "react-icons/io5";
+import { HiMiniUsers } from "react-icons/hi2";
+
 
 
 const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
@@ -73,15 +76,23 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
                       {isAdmin ? (
                         <>
                           <li className="nav-item">
-                              <Link to="/kor" className="nav-link">Korisnici</Link>
+                              <Link to="/korisnici" className="nav-link">
+                              <HiMiniUsers className='nav-icon'/>
+                                Korisnici</Link>
                           </li>
                           <li className="nav-item">
                           <Link to="/spa-services" className="nav-link">
                          <FaSpa className="nav-icon" />
                           Spa Services
                           </Link>
-                
-                      </li>
+                          </li>
+                          <li className="nav-item">
+                          <Link to="/metrike" className="nav-link">
+                          <IoStatsChart className='nav-icon'/>
+                          Metrike
+                          </Link>
+                          </li>
+
                       </>
                       ) : (
                         <>
@@ -91,7 +102,7 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
                             Spa Specialists
                             </Link>
                           </li>
-                          
+
                           <li className="nav-item">
                           <Link to="/spa-services-termin" className="nav-link">
                          <FaSpa className="nav-icon" />

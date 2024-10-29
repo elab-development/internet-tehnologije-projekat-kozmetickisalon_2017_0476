@@ -12,6 +12,7 @@ import About from './components/About';
 import Korisnici from './components/Korisnici';
 import UslugeRezervacija from './components/UslugeRezervacija';
 import ZakazaniTermini from './components/ZakazaniTermini';
+import Metrike from './components/Metrike';
 
 
 function App() {
@@ -34,8 +35,9 @@ function App() {
             <>
               {isAdmin ? (
                 <>
-                  <Route path="/kor" element={<Korisnici />} />
+                  <Route path="/korisnici" element={<Korisnici />} />
                   <Route path="/spa-services" element={<KozmetickeUsluge />} />
+                  <Route path="/metrike" element={<Metrike/>} />
                 </>
               ) : (
                 <>
