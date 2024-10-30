@@ -78,7 +78,7 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
                           <li className="nav-item">
                               <Link to="/korisnici" className="nav-link">
                               <HiMiniUsers className='nav-icon'/>
-                                Korisnici</Link>
+                                App Users</Link>
                           </li>
                           <li className="nav-item">
                           <Link to="/spa-services" className="nav-link">
@@ -89,7 +89,7 @@ const Navbar = ({ token, setToken, isAdmin, setIsAdmin }) => {
                           <li className="nav-item">
                           <Link to="/metrike" className="nav-link">
                           <IoStatsChart className='nav-icon'/>
-                          Metrike
+                          Metrics
                           </Link>
                           </li>
 

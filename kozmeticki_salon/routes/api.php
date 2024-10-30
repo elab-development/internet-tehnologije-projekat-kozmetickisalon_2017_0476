@@ -25,8 +25,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::resource('zaposleni', ZaposleniController::class, ['only' => ['index', 'show']]);
 
-
-
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/metrics', [TerminController::class, 'getMetrics']);
