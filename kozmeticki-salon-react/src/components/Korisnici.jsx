@@ -98,7 +98,6 @@ const Korisnici = () => {
                         <p><strong>ID:</strong> {selectedUser.id}</p>
                         <p><strong>Ime:</strong> {selectedUser.name}</p>
                         <p><strong>Email:</strong> {selectedUser.email}</p>
-                        <p><strong>Uloga:</strong> {selectedUser.is_admin ? 'Admin' : 'Posetilac'}</p>
                         <button onClick={() => deleteUser(selectedUser.id)}>Obriši korisnika</button>
                         <button onClick={closeModal}>Zatvori</button>
                     </div>
