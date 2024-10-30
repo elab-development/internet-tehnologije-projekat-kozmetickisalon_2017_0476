@@ -21,7 +21,7 @@ Eksterni API: Pexels API za prikaz slika
 
 ## Korišćenje aplikacije
 ### Prijava i Registracija
-Registracija: Novi korisnici mogu kreirati nalog popunjavanjem obrasca za registraciju. Nakon uspešne registracije, korisnik će biti obavešten putem modalnog prozora i biće preusmeren na stranicu za prijavu.
+Registracija: Novi korisnici mogu kreirati nalog popunjavanjem obrasca za registraciju.Nakon uspešne registracije, korisnik će biti obavešten putem modalnog prozora i biće preusmeren na stranicu za prijavu.
 Prijava: Korisnici unose svoj email i lozinku da bi se prijavili. Ako korisnik ima administratorske privilegije, aplikacija će ga automatski prepoznati kao administratora.
 ### Funkcionalnosti za korisnike
 Pregled usluga: Nakon prijave, korisnici mogu pregledati listu dostupnih kozmetičkih usluga sa detaljima o opisu i ceni.
@@ -38,5 +38,6 @@ Eksport u CSV: Administrator može preuzeti CSV fajl sa detaljima o uslugama, š
 Grafikoni: U sekciji sa metrike, administrator može vizualizovati podatke pomoću grafikona (broj zakazanih termina po zaposlenom i pregled cena usluga).
 Eksterni API: Prikazivanje slika vezanih za kozmetičke usluge preuzetih putem Pexels API-ja, što doprinosi atraktivnom korisničkom iskustvu.
 
-
+### Autor
+Marija Bakic
 
